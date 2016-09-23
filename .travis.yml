@@ -1,30 +1,17 @@
----
 language: python
-python: "2.7"
-
-# Use the new container infrastructure
+python: '2.7'
 sudo: false
-
-# Install ansible
 addons:
   apt:
     packages:
     - python-pip
-
 install:
-  # Install ansible
-  - pip install ansible
-
-  # Check ansible version
-  - ansible --version
-
-  # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' >ansible.cfg
-
+- pip install ansible
+- ansible --version
+- printf '[defaults]\nroles_path=../' >ansible.cfg
 script:
-  # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
-
+- ansible-playbook tests/test.yml -i tests/inventory --syntax-check
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
-
+  slack:
+    secure: jpxRFqreMzNxcxYMO0xN1i6rfABuh/G8swolS1IkMfh5yRb4C2ZBA+QC0Tn/cUZLCsBx+9olAwuRlCzJBNUDxsFwQH8HQhE65SuNwVRQQp4iYa9PCRPBTc7+ilyf7NvTaCquifWk0x14SGH8UeQoUjpXmOomwRDsABqxDyP/e9YOHKEwOXs1s4RorKX7WZdpuzOxnlToyR+t0XQ3F0EFnIwKHeNXAT60oYDMNGiv4p8H/AMQqXSy6KQ4xFGJEVYSxHP/OsI/m4VcnBrodfluCKUVw7+2Q8Fvvf8TOUjYzcLpEs7veeRLTPAYTUq4zNciQwWO1OGZDkrn8D7f1hMWoMbTJRtaB4t1SrHG8SR8YMx0vtowL/ri3mf+zl0KyEPciuyks9E9bHVvdXA0oHp+zqprIdFGAaJktphFiUnxqM12+WccShy4eUYxAgGnq1f03ZV5t9h+p+STMDlNnaT6/7wqVqSRNUle0jJ4mC8z/4JqDRMhOwFvMFPfin3BK216gYHSbrBeVsrmz9jsxTGOF1HF9s3R0YCCKWhEYOQoSjFhOMLBBwTDFGdc5ewypOIqd5dGjiH4ZNjLdfHvAct6fKvgd1nw524Koq2OF2X0336ckrCnJlZm42TFWOC3+g/5T2BEu1nd9zLvjpDN+cwfspMZ92x7ozgnpB9w4cQdC1k=
