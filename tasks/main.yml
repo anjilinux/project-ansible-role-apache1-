@@ -80,6 +80,11 @@
   notify:
     - restart apache
 
+- name: check apache default root
+  file:
+    path: "{{ apache_www_root }}"
+    state: directory
+
 - name: service start
   service:
     name:  "{{ item }}"

@@ -32,8 +32,7 @@ apache_vhosts:
   - custom_vhosts
 
 # Add your own vhosts, simply override apache_custom_vhosts to fit your needs
-apache_custom_vhosts:
-  - { ServerName: test.local, DocumentRoot: /srv/www }
+apache_custom_vhosts: []
 
 # Specific link with php fpm
 php_fpm_socket_path: /var/run/php5-fpm.sock
