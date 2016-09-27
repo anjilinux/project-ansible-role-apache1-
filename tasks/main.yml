@@ -84,6 +84,17 @@
   file:
     path: "{{ apache_www_root }}"
     state: directory
+    owner: "{{ apache_user }}"
+    group: "{{ apache_user_group }}"
+    mode: 0755
+
+- name: add default index
+  template:
+    src: index.html.j2
+    dest: "{{ apache_www_root}}/index.html"
+    owner: "{{ apache_user }}"
+    group: "{{ apache_user_group }}"
+    mode: 0755
 
 - name: service start
   service:
