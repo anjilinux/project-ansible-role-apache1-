@@ -1,5 +1,5 @@
 env:
-  - distro: debianjessie85
+  - distro: debianjessie
     init: "/sbin/init"
     run_opts: ""
     playbook: test.yml
