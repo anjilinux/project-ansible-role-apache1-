@@ -1,6 +1,8 @@
 Apache
 ======
 
+[![Build Status](https://travis-ci.org/jebovic/ansible-apache.svg?branch=master)](https://travis-ci.org/jebovic/ansible-apache)
+
 Install and configure apache 2.4 with main macros and custom vhosts
 
 Role Variables
