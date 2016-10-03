@@ -1,7 +1,7 @@
 Apache
 ======
 
-[![Build Status](https://travis-ci.org/jebovic/ansible-apache.svg?branch=master)](https://travis-ci.org/jebovic/ansible-apache)
+[![Build Status](https://travis-ci.org/jebovic/ansible-apache.svg?branch=master)](https://travis-ci.org/jebovic/ansible-apache) [![Ansible Galaxy](https://img.shields.io/badge/galaxy-jebovic.apache-blue.svg?style=flat)](https://galaxy.ansible.com/jebovic/apache)
 
 Install and configure apache 2.4 with main macros and custom vhosts
 
