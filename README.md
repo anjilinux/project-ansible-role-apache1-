@@ -8,7 +8,7 @@ Install and configure apache 2.4 with main macros and custom vhosts
 Role Variables
 --------------
 
-```
+```yaml
 # Default apache configuration
 apache_user: www-data
 apache_user_group: www-data
@@ -51,11 +51,17 @@ php_fpm_socket_path: /var/run/php5-fpm.sock
 Example Playbook
 ----------------
 
+```yaml
+- hosts: servers
+  roles:
+     - { role: jebovic.apache }
 ```
-    - hosts: servers
-      roles:
-         - { role: jebovic.apache }
-```
+
+Tags
+----
+
+* apache_config : only update config and restart service
+
 
 License
 -------

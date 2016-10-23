@@ -21,6 +21,7 @@
     - apache2.conf
   notify:
     - restart apache
+  tags: apache_config
 
 - name: enable modules
   file:
@@ -30,6 +31,7 @@
   with_items: "{{ apache_modules }}"
   notify:
     - restart apache
+  tags: apache_config
 
 - name: create macros folder
   file:
@@ -48,6 +50,7 @@
     - "{{ apache_macros }}"
   notify:
     - restart apache
+  tags: apache_config
 
 - name: remove default configuration
   file:
@@ -58,6 +61,7 @@
     - sites-enabled/*
   notify:
     - restart apache
+  tags: apache_config
 
 - name: add vhosts
   template:
@@ -69,6 +73,7 @@
     - "{{ apache_vhosts }}"
   notify:
     - restart apache
+  tags: apache_config
 
 - name: enable vhosts
   file:
@@ -79,6 +84,7 @@
     - "{{ apache_vhosts }}"
   notify:
     - restart apache
+  tags: apache_config
 
 - name: check apache default root
   file:
