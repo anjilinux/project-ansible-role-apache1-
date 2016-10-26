@@ -19,6 +19,7 @@
     group: root
   with_items:
     - apache2.conf
+    - ports.conf
   notify:
     - restart apache
   tags: apache_config

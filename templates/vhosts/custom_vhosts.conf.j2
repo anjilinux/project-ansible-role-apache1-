@@ -1,13 +1,13 @@
 {% if apache_custom_vhosts %}
 {% for vhost in apache_custom_vhosts %}
 <VirtualHost *:{{ apache_port }}>
-    {% if vhost.macro is defined and vhost.macro -%}
+    {% if vhost.macro is defined and vhost.macro %}
     Use {{ vhost.macro }} {{ vhost.ServerName }} {{ vhost.DocumentRoot }}
-    {%- endif %}
+    {% endif %}
 
-    {% if vhost.misc is defined and vhost.misc -%}
+    {% if vhost.misc is defined and vhost.misc %}
     {{ vhost.misc }}
-    {%- endif %}
+    {% endif %}
 </VirtualHost>
 {% endfor %}
 {% endif %}

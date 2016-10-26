@@ -7,6 +7,7 @@ apache_port: 80
 apache_www_root: /var/www
 apache_listen:
   - "*:{{ apache_port }}"
+  - "*:443"
 apache_default_servername: "{{ ansible_fqdn }}"
 
 # see macros name in templates/macros directory
@@ -28,6 +29,7 @@ apache_modules:
   - macro.load
   - rewrite.load
   - headers.load
+  - ssl.load
 
 # Add virtualhosts to sites-available and sites-enabled directories
 apache_vhosts:

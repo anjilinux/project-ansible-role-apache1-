@@ -10,10 +10,6 @@ Group {{ apache_user_group }}
 
 ServerName {{ apache_default_servername }}
 
-{% for listen in apache_listen -%}
-Listen {{ listen }}
-{%- endfor %}
-
 HostnameLookups Off
 
 ErrorLog ${APACHE_LOG_DIR}/error.log
