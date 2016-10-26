@@ -13,7 +13,10 @@ Role Variables
 apache_user: www-data
 apache_user_group: www-data
 apache_port: 80
-apache_www_root: /srv/www
+apache_www_root: /var/www
+apache_listen:
+  - "*:{{ apache_port }}"
+apache_default_servername: "{{ ansible_fqdn }}"
 
 # see macros name in templates/macros directory
 apache_macros:
@@ -37,15 +40,17 @@ apache_modules:
 
 # Add virtualhosts to sites-available and sites-enabled directories
 apache_vhosts:
-  - default
   - custom_vhosts
 
 # Add your own vhosts, simply override apache_custom_vhosts to fit your needs
 apache_custom_vhosts:
-  - { ServerName: test.local, DocumentRoot: /srv/www }
+  - ServerName: "{{ ansible_host }}"
+    DocumentRoot: "{{ apache_www_root }}"
+    macro: CommonNoFpmMacro # choose between CommonNoFpmMacro for a static website and CommonMacro for dynamic website with php
+    misc: no # add your custom config here, free format
 
 # Specific link with php fpm
-php_fpm_socket_path: /var/run/php5-fpm.sock
+php_fpm_socket_path: /var/run/php-fpm.sock
 ```
 
 Example Playbook

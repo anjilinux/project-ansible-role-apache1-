@@ -31,11 +31,14 @@ apache_modules:
 
 # Add virtualhosts to sites-available and sites-enabled directories
 apache_vhosts:
-  - default
   - custom_vhosts
 
 # Add your own vhosts, simply override apache_custom_vhosts to fit your needs
-apache_custom_vhosts: []
+apache_custom_vhosts:
+  - ServerName: "{{ ansible_host }}"
+    DocumentRoot: "{{ apache_www_root }}"
+    macro: CommonNoFpmMacro # choose between false, CommonNoFpmMacro for a static website and CommonMacro for dynamic website with php, if false, use 'misc' key for writing your vhost
+    misc: no # add your custom config here, free format
 
 # Specific link with php fpm
 php_fpm_socket_path: /var/run/php-fpm.sock
