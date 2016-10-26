@@ -93,6 +93,7 @@
     owner: "{{ apache_user }}"
     group: "{{ apache_user_group }}"
     mode: 0755
+  tags: apache_config
 
 - name: add default index
   template:
@@ -101,6 +102,7 @@
     owner: "{{ apache_user }}"
     group: "{{ apache_user_group }}"
     mode: 0755
+  tags: apache_config
 
 - name: service start
   service:
