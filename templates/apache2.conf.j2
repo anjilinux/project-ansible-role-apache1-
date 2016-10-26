@@ -8,6 +8,12 @@ KeepAliveTimeout 5
 User {{ apache_user }}
 Group {{ apache_user_group }}
 
+ServerName {{ apache_default_servername }}
+
+{% for listen in apache_listen -%}
+Listen {{ listen }}
+{%- endfor %}
+
 HostnameLookups Off
 
 ErrorLog ${APACHE_LOG_DIR}/error.log
@@ -42,8 +48,8 @@ AccessFileName .htaccess
         Require all denied
 </FilesMatch>
 
-LogFormat "%v:%p %h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" vhost_combined
-LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
+LogFormat "%v:%p %h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\" %D" vhost_combined
+LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\" %D" combined
 LogFormat "%h %l %u %t \"%r\" %>s %O" common
 LogFormat "%{Referer}i -> %U" referer
 LogFormat "%{User-agent}i" agent
