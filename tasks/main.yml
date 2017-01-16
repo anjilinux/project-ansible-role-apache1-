@@ -4,12 +4,10 @@
   apt:
     name:  "{{ item }}"
     state:              latest
-    install_recommends: false
+    install_recommends: no
     update_cache:       yes
-    cache_valid_time:   300
-  with_items:
-    - apache2
-    - apache2-utils
+    cache_valid_time:   86400
+  with_items: "{{ apache_apt_packages }}"
 
 - name: config
   template:

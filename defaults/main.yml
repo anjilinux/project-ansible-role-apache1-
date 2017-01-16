@@ -1,5 +1,10 @@
 ---
 
+# Apache install configuration
+apache_apt_packages:
+    - apache2
+    - apache2-utils
+
 # Default apache configuration
 apache_user: www-data
 apache_user_group: www-data
