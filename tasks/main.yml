@@ -2,11 +2,11 @@
 
 - name: install apt packages
   apt:
-    name:  "{{ item }}"
-    state:              latest
+    name: "{{ item }}"
+    state: latest
     install_recommends: no
-    update_cache:       yes
-    cache_valid_time:   86400
+    update_cache: yes
+    cache_valid_time: 86400
   with_items: "{{ apache_apt_packages }}"
 
 - name: config
@@ -105,7 +105,7 @@
 
 - name: service start
   service:
-    name:  "{{ item }}"
+    name: "{{ item }}"
     state: started
     enabled: yes
   with_items:
